@@ -6,11 +6,22 @@ export class Client {
   readonly #decoder: TextDecoder;
   readonly #encoder: TextEncoder;
 
+  /**
+   * Creates a new instance of `Client`.
+   * @param {Deno.Conn} conn
+   * @returns {Client} The new instance
+   */
   constructor(public conn: Deno.Conn) {
     this.#decoder = new TextDecoder();
     this.#encoder = new TextEncoder();
   }
 
+  /**
+   * Sends the `request` through the `conn`.
+   * @param {Request} request
+   * @param {number} y
+   * @returns {Promise<Response>} The HTTP response
+   */
   async request(request: Request): Promise<Response> {
     // Send the request
     await this.send(request);
@@ -100,7 +111,7 @@ export class Client {
     return Promise.resolve(body);
   }
 
-  send(request: Request): Promise<number> {
+  private send(request: Request): Promise<number> {
     const requestStr = request.toHttp();
     const encodedRequest = this.encode(requestStr);
 
