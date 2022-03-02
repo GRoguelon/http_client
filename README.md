@@ -13,7 +13,7 @@ import {
   HttpClient,
   HttpMethod,
   HttpRequest,
-} from "https://deno.land/x/http_client@v0.0.2/mod.ts";
+} from "https://deno.land/x/http_client@v0.0.3/mod.ts";
 
 // Docker socket
 const conn = await Deno.connect({
@@ -55,7 +55,7 @@ Some helpers are also available:
 import {
   Helpers as http,
   HttpClient,
-} from "https://deno.land/x/http_client@v0.0.2/mod.ts";
+} from "https://deno.land/x/http_client@v0.0.3/mod.ts";
 
 // Docker socket
 const conn = await Deno.connect({
